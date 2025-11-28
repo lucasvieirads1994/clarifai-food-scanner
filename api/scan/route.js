@@ -1,5 +1,6 @@
 export const runtime = "edge";
 
+// POST: continua funcionando normalmente
 export async function POST(req) {
   try {
     const { image } = await req.json();
@@ -33,4 +34,12 @@ export async function POST(req) {
       { status: 500 }
     );
   }
+}
+
+// GET: permite testar a rota no navegador
+export async function GET() {
+  return new Response(
+    JSON.stringify({ status: "OK", message: "Clarifai Food Scanner API está rodando" }),
+    { status: 200 }
+  );
 }
